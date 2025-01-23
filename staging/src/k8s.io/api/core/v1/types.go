@@ -4835,6 +4835,11 @@ type EphemeralContainer struct {
 	// support namespace targeting then the result of setting this field is undefined.
 	// +optional
 	TargetContainerName string `json:"targetContainerName,omitempty" protobuf:"bytes,2,opt,name=targetContainerName"`
+	// ResizePolicy defines how the resources of a container can be resized.
+        // This field is not supported for ephemeral containers as they do not support
+        // resource requests or limits.
+        // +optional
+        ResizePolicy []ContainerResizePolicy `json:"resizePolicy,omitempty" protobuf:"bytes,14,rep,name=resizePolicy"`
 }
 
 // PodStatus represents information about the status of a pod. Status may trail the actual
